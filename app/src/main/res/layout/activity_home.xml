@@ -4,42 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="#F5F5F5"
     tools:context=".HomeActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp">
-
-        <TextView
-            android:id="@+id/tvWelcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Humanitas Connect"
-            android:textColor="#333333"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
-
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Aktivne humanitarne akcije"
         android:textColor="#D32F2F"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:layout_marginBottom="12dp"/>
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"/>
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvActions"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="Uskoro: Lista akcija iz baze podataka"
-        android:textColor="#9E9E9E"
-        android:textSize="16sp"
-        android:textStyle="italic" />
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
 
 </LinearLayout>
