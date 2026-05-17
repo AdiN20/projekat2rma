@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "744198426837",
+    "project_id": "humanitas-connect",
+    "storage_bucket": "humanitas-connect.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744198426837:android:2a027016336996be5a525c",
+        "android_client_info": {
+          "package_name": "com.example.humanitasconnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7-XFF61MbYR_Vr_4k4V9pF4OVUj84dY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

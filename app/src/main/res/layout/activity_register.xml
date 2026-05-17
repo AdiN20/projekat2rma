@@ -16,7 +16,6 @@
         android:textColor="#D32F2F"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_bottom="32dp"
         android:layout_marginBottom="32dp" />
 
     <EditText
