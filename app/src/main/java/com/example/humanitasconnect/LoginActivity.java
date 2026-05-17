@@ -17,15 +17,17 @@ public class LoginActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.btnLogin);
         TextView tvGoToRegister = findViewById(R.id.tvGoToRegister);
 
-
+        // Kada klikne na "PRIJAVI SE", otvara se HomeActivity
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish(); // Zatvara Login
             }
         });
 
-
+        // Kada klikne na "Nemate račun? Registrujte se", otvara se RegisterActivity
         tvGoToRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
