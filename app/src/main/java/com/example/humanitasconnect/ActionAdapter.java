@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ActionAdapter extends RecyclerView.Adapter<ActionAdapter.ActionViewHolder> {
@@ -34,6 +35,12 @@ public class ActionAdapter extends RecyclerView.Adapter<ActionAdapter.ActionView
     @Override
     public int getItemCount() {
         return actionList.size();
+    }
+
+
+    public void filterList(List<ActionModel> filteredList) {
+        this.actionList = filteredList;
+        notifyDataSetChanged();
     }
 
     public static class ActionViewHolder extends RecyclerView.ViewHolder {

@@ -3,9 +3,11 @@ package com.example.humanitasconnect;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,19 +27,28 @@ public class HomeActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FloatingActionButton fabAddAction;
 
+
+    private LinearLayout layoutEmptyState;
+    private SearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        rvActions = findViewById(R.id.rvActions);
-        rvActions.setLayoutManager(new LinearLayoutManager(this));
 
+        rvActions = findViewById(R.id.rvActions);
+        layoutEmptyState = findViewById(R.id.layoutEmptyState);
+        searchView = findViewById(R.id.searchView);
+        fabAddAction = findViewById(R.id.fabAddAction);
+
+        rvActions.setLayoutManager(new LinearLayoutManager(this));
         actionList = new ArrayList<>();
         adapter = new ActionAdapter(actionList);
         rvActions.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("humanitarna_pomoc");
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -49,6 +60,16 @@ public class HomeActivity extends AppCompatActivity {
                         actionList.add(action);
                     }
                 }
+
+
+                if (actionList.isEmpty()) {
+                    layoutEmptyState.setVisibility(View.VISIBLE);
+                    rvActions.setVisibility(View.GONE);
+                } else {
+                    layoutEmptyState.setVisibility(View.GONE);
+                    rvActions.setVisibility(View.VISIBLE);
+                }
+
                 adapter.notifyDataSetChanged();
             }
 
@@ -58,7 +79,20 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        fabAddAction = findViewById(R.id.fabAddAction);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText);
+                return true;
+            }
+        });
+
         fabAddAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,5 +100,25 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+
+    private void filter(String text) {
+        List<ActionModel> filteredList = new ArrayList<>();
+
+        for (ActionModel item : actionList) {
+            if (item.getTitle().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+
+
+        if (filteredList.isEmpty()) {
+            layoutEmptyState.setVisibility(View.VISIBLE);
+        } else {
+            layoutEmptyState.setVisibility(View.GONE);
+        }
+
+        adapter.filterList(filteredList);
     }
 }
