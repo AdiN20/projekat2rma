@@ -8,17 +8,14 @@
     android:background="#F5F5F5"
     tools:context=".HomeActivity">
 
-    <TextView
-        android:id="@+id/tvHeader"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Humanitas Connect"
-        android:textColor="#D32F2F"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:padding="16dp"
         android:background="#FFFFFF"
         android:elevation="4dp"
+        app:title="Humanitas Connect"
+        app:titleTextColor="#D32F2F"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -31,7 +28,7 @@
         android:background="#FFFFFF"
         app:queryHint="Pretraži akcije..."
         app:iconifiedByDefault="false"
-        app:layout_constraintTop_toBottomOf="@id/tvHeader"
+        app:layout_constraintTop_toBottomOf="@id/toolbarHome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

@@ -33,15 +33,16 @@ android {
 }
 
 dependencies {
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
 
-    // Firebase zavisnosti
-    implementation(libs.firebase.auth)
-    // OVDJE JE IZMJENA: Direktan uvoz baze bez 'libs.' kataloga da izbjegnemo grešku
-    implementation("com.google.firebase:firebase-database:21.0.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-database")
 
     implementation(libs.credentials)
     implementation(libs.credentials.play.services.auth)
