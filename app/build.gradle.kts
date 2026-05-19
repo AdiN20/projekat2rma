@@ -5,11 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.humanitasconnect"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.humanitasconnect"
@@ -41,7 +37,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+
+    // Firebase zavisnosti
     implementation(libs.firebase.auth)
+    // OVDJE JE IZMJENA: Direktan uvoz baze bez 'libs.' kataloga da izbjegnemo grešku
+    implementation("com.google.firebase:firebase-database:21.0.0")
+
     implementation(libs.credentials)
     implementation(libs.credentials.play.services.auth)
     implementation(libs.googleid)

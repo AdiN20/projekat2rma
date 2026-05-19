@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://tools.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFFFFF"
+    tools:context=".AddActionActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pokreni novu akciju"
+        android:textColor="#D32F2F"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp" />
+
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Naslov akcije"
+        android:inputType="text"
+        android:background="@android:drawable/editbox_background"
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="Opis akcije (detalji)"
+        android:inputType="textMultiLine"
+        android:gravity="top|left"
+        android:background="@android:drawable/editbox_background"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etTarget"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Potreban iznos (Cilj u KM)"
+        android:inputType="number"
+        android:background="@android:drawable/editbox_background"
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnSubmitAction"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="OBJAVI AKCIJU"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>
